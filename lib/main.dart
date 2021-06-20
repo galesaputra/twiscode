@@ -110,8 +110,7 @@ class _HttpScreen extends State<HttpScreen> {
                         padding: EdgeInsets.all(8),
                         child: Column(
                           children: [
-                            Image.network(
-                                "https://ranting.twisdev.com/uploads/${carts[index].foto}"),
+                            Flexible(child: Image.network("https://ranting.twisdev.com/uploads/${carts[index].foto}"),),
                             SizedBox(height: 10,),
                             Row(
                               children: [
