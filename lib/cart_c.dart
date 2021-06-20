@@ -38,8 +38,14 @@ class Cart_c {
     // print(json[5]);
     // return(json);
     String is_Stock = "0";
-    if(json['stock'].isEmpty == false){
+    String img_Path =
+        "https://i.pinimg.com/originals/65/25/a0/6525a08f1df98a2e3a545fe2ace4be47.jpg";
+    if (json['stock'].isEmpty == false) {
       is_Stock = json['stock'];
+    }
+    if (json['default_photo']['img_path'].isEmpty == false) {
+      img_Path =
+          "https://ranting.twisdev.com/uploads/${json['default_photo']['img_path']}";
     }
     return Cart_c(
       id: json["id"] as String,
@@ -47,7 +53,7 @@ class Cart_c {
       price: json["price"] as String,
       title: json['title'] as String,
       description: json['description'] as String,
-      foto: json['default_photo']['img_path'] as String,
+      foto: img_Path as String,
       username: json['added_user_name'] as String,
       location_name: json['location_name'] as String,
       halal: json['is_halal'] as String,
@@ -55,7 +61,6 @@ class Cart_c {
       item_condition: json['condition_of_item']['name'] as String,
       weight: json['weight'] as String,
     );
-
   }
   //
   // Map<String, dynamic> toJson() {

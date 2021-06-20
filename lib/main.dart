@@ -66,6 +66,7 @@ class _HttpScreen extends State<HttpScreen> {
       (response) {
         isLoading = 2;
         carts = response;
+        print(response);
         setState(() {});
       },
       onError: (exception) {
@@ -105,8 +106,8 @@ class _HttpScreen extends State<HttpScreen> {
                           child: Column(
                             children: [
                               Flexible(
-                                  child: Image.network(
-                                      "https://ranting.twisdev.com/uploads/${carts[index].foto}")),
+                                child: Image.network(carts[index].foto),
+                              ),
                               SizedBox(
                                 height: 10,
                               ),
